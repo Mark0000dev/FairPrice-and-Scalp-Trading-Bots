@@ -14,9 +14,11 @@ BEFORE_PUMP_API_KEY = os.getenv("PUMP_DATE")
 ANALYTICS_WALLET_API_KEY = os.getenv("ANALYTICS_WALLET")
 ENGINE_SQL = os.getenv("ENGINE_SQL")
 
+token_mint = input("write ur token mint ")
+
 DEXSCREENER_URL = os.getenv(
     "DEXSCREENER_URL",
-    "https://api.dexscreener.com/token-pairs/v1/solana/9cRCn9rGT8V2imeM2BaKs13yhMEais3ruM3rPvTGpump"
+    "https://api.dexscreener.com/token-pairs/v1/solana/{token_mint}"
 )
 
 WALLETS_CSV = os.getenv("WALLETS_CSV", "wallets_db.csv")
@@ -36,8 +38,6 @@ if missing_env:
     )
 
 url = f"https://mainnet.helius-rpc.com/?api-key={HELIUS_API_KEY}"
-
-token_mint = input("write ur token mint ")
 
 signature_received = False
 _system_wallet_cache = {}
